@@ -1,0 +1,512 @@
+/* =========================================
+   1. БАЗОВІ НАЛАШТУВАННЯ ТА ШРИФТИ
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap');
+
+:root {
+    --color-bg: #FFFFFF;
+    --color-bg-soft: #F9F7F5; /* Ніжний теплий відтінок для виділення блоків */
+    --color-text-main: #2C2C2C;
+    --color-text-muted: #666666;
+    --color-accent: #111111;
+    --color-border: #E5E5E5;
+    
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-text: 'Montserrat', sans-serif;
+    
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-text);
+    color: var(--color-text-main);
+    background-color: var(--color-bg);
+    line-height: 1.6;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 3.5rem; line-height: 1.1; }
+h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem; }
+h3 { font-size: 1.5rem; }
+
+a {
+    text-decoration: none;
+    color: var(--color-text-main);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--color-text-muted);
+}
+
+ul { list-style: none; }
+
+section {
+    padding: 80px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   2. КНОПКИ
+   ========================================= */
+button {
+    font-family: var(--font-text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 14px 28px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: var(--transition);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+button[type="button"], button[type="submit"] {
+    background-color: var(--color-accent);
+    color: #fff;
+    border: 1px solid var(--color-accent);
+}
+
+button[type="button"]:hover, button[type="submit"]:hover {
+    background-color: transparent;
+    color: var(--color-accent);
+}
+
+/* =========================================
+   3. ШАПКА САЙТУ (HEADER)
+   ========================================= */
+header {
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    border-bottom: 1px solid var(--color-border);
+    z-index: 1000;
+}
+
+.logo a {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-accent);
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   4. ГОЛОВНИЙ ЕКРАН (HERO)
+   ========================================= */
+#home {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--color-bg-soft);
+    max-width: 100%;
+}
+
+#home p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    color: var(--color-text-muted);
+}
+
+#home ul {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+    font-style: italic;
+    color: var(--color-text-muted);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.cta-buttons a:last-child button {
+    background-color: transparent;
+    color: var(--color-accent);
+}
+
+.cta-buttons a:last-child button:hover {
+    background-color: var(--color-accent);
+    color: #fff;
+}
+
+/* =========================================
+   5. ФІЛЬТР КАТЕГОРІЙ
+   ========================================= */
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.filter-buttons button {
+    background: transparent;
+    color: var(--color-text-main);
+    border: 1px solid var(--color-border);
+    padding: 10px 20px;
+    border-radius: 30px; /* Овальні кнопки для стилю */
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.filter-buttons button:hover {
+    border-color: var(--color-accent);
+}
+
+/* =========================================
+   6. КАТАЛОГ СМАКІВ
+   ========================================= */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.product-card {
+    text-align: center;
+    transition: var(--transition);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: var(--color-bg-soft); /* Плейсхолдер для фото */
+}
+
+.product-card h3 {
+    margin-bottom: 5px;
+}
+
+.product-card .price {
+    color: var(--color-text-muted);
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.product-card button {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    color: var(--color-accent);
+    border-color: var(--color-border);
+}
+
+.product-card button:hover {
+    border-color: var(--color-accent);
+}
+
+/* =========================================
+   7. ТЕКСТОВИЙ БЛОК ПРО БРЕНД
+   ========================================= */
+#about {
+    text-align: center;
+    max-width: 800px;
+}
+
+#about p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+#about ul {
+    text-align: left;
+    margin: 0 auto 40px;
+    max-width: 500px;
+}
+
+#about ul li {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+}
+
+#about ul li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--color-text-muted);
+}
+
+blockquote {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--color-accent);
+    padding-top: 30px;
+    border-top: 1px solid var(--color-border);
+}
+
+/* =========================================
+   8. ГАЛЕРЕЯ
+   ========================================= */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: var(--color-bg-soft);
+}
+
+.gallery-buttons {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* =========================================
+   9. ЧАСТІ ЗАПИТАННЯ (FAQ)
+   ========================================= */
+#faq details {
+    max-width: 800px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--color-border);
+    padding: 20px 0;
+}
+
+#faq summary {
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    list-style: none; /* Приховуємо стандартний маркер */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#faq summary::-webkit-details-marker {
+    display: none;
+}
+
+#faq summary::after {
+    content: "+";
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: var(--transition);
+}
+
+#faq details[open] summary::after {
+    content: "−";
+}
+
+#faq details p {
+    padding-top: 15px;
+    color: var(--color-text-muted);
+}
+
+/* =========================================
+   10. КОНТАКТИ ТА ФОРМА
+   ========================================= */
+#contacts {
+    background-color: var(--color-bg-soft);
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    padding: 80px 10%;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.social-links {
+    margin-top: 30px;
+    font-weight: 500;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form label {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 5px;
+    display: block;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-family: var(--font-text);
+    font-size: 1rem;
+    background: var(--color-bg);
+    transition: var(--transition);
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+/* =========================================
+   11. ПІДВАЛ (FOOTER)
+   ========================================= */
+footer {
+    background-color: var(--color-accent);
+    color: #fff;
+    padding: 60px 5% 30px;
+}
+
+footer h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+footer a {
+    color: #ccc;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+.footer-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-sections ul li {
+    margin-bottom: 10px;
+}
+
+footer hr {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 20px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #999;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   12. ПЛАВАЮЧІ КНОПКИ (WIDGETS)
+   ========================================= */
+.floating-widgets {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.floating-widgets a {
+    background-color: var(--color-accent);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.floating-widgets a:hover {
+    background-color: var(--color-text-muted);
+}
+
+/* =========================================
+   АДАПТИВНІСТЬ (Мобільні пристрої)
+   ========================================= */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #contacts {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 60px 5%;
+    }
+    
+    .floating-widgets {
+        bottom: 15px;
+        right: 15px;
+    }
+}
